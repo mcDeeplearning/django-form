@@ -7,4 +7,5 @@ app_name = 'post'
 urlpatterns = [
     path('',views.list, name='list'),
     path('create/',views.create, name='create'),
+    path('<int:id>/detail/',views.detail, name='detail'),
 ]

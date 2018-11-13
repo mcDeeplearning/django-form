@@ -4,7 +4,8 @@ from .models import Post
 
 # Create your views here.
 def list(request):
-    return render(request,'post/list.html')
+    posts = Post.objects.all()
+    return render(request,'post/list.html',{'posts':posts})
     
 def create(request):
     if request.method == "POST":
@@ -21,3 +22,7 @@ def create(request):
         form = PostForm()
     return render(request, 'post/create.html',{'form':form})
         
+def detail(request,id):
+    post = Post.objects.get(id=id)
+    return render(request,'post/detail.html',{'post':post})
+    
