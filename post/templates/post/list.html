@@ -4,6 +4,8 @@
     <h1>여기는 list 입니다.</h1>
     {%for post in posts%}
         <h1>{{post.title}}</h1>
+        <!--<a href="/posts/123/detail/">글보기</a>-->
+        <a href="{% url 'post:detail' id=post.id %}">글보기</a>
     {%endfor%}
 
 {%endblock%}
