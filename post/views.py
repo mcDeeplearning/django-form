@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, resolve_url
-from .forms import PostForm
+from .forms import PostForm, PostModelForm
 from .models import Post
 
 # Create your views here.
@@ -49,3 +49,16 @@ def delete(request,id):
     post.delete()
     
     return redirect(resolve_url('post:list'))
+
+def model_create(request):
+    if request.method == "POST":
+        # 저장하는 로직
+        pass
+    else:
+        # 폼을 보여주는 로직
+        form = PostModelForm()
+        pass
+    return render(request,'post/model_create.html',{'form':form})
+
+def model_update(request,id):
+    pass
